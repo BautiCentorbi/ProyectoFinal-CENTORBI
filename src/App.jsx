@@ -5,9 +5,6 @@ import ButtonMain from './components/button/ButtonMain'
 import NavBar from './components/navBar/NavBar'
 import ItemListContainer from './components/itemListContainer/ItemListContainer'
 
-
-
-
 function App() {
   const [count, setCount] = useState(0)
 

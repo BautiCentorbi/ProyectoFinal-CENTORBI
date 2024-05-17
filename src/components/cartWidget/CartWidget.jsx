@@ -4,8 +4,8 @@ import { Box } from '@chakra-ui/react'
 
 const CartWidget = () => {
   return (
-    <Box>
-        <IoMdCart />
+    <Box >
+        <IoMdCart color='Black' size='40px'/>
     </Box>
   )
 }

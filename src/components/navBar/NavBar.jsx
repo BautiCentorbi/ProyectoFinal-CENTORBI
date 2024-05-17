@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     Box,
+    Flex,
     Image,
     Heading,
     List,
@@ -8,25 +9,30 @@ import {
     ListIcon,
     OrderedList,
     UnorderedList,
+    Center,
+    Spacer,
 } from '@chakra-ui/react'
 import CartWidget from '../cartWidget/CartWidget'
 
 const NavBar = () => {
     return (
-        <Box display='Flex'>
+        <Flex align='Center' justify='Center' paddingX='40px' bg='#fff6e3'>
         <Image
-            boxSize='56px'
-            src='https://drive.google.com/file/d/1Cr7TeGIwe8WgxxIXf1QzM2pd8qk_jCdY/view?usp=sharing'
+            boxSize='120px'
+            src='./ifLogo.png'
             alt='Logo Infinite Clothing'
         />
-        <Heading as='h4' size='md'>Nombre Empresa</Heading>
-            <UnorderedList styleType='none' display='Flex'>
+        <Spacer />
+        <Flex justify='space-between'>
+            <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' color='black'>
                 <ListItem>Home</ListItem>
                 <ListItem>Nosotros</ListItem>
                 <ListItem>Productos</ListItem>
             </UnorderedList>
+        </Flex>
+        <Spacer />
         <CartWidget />
-        </Box>
+        </Flex>
     )
 }
 
