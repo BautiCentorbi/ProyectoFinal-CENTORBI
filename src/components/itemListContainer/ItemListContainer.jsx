@@ -10,10 +10,12 @@ import CardMain from '../card/CardMain'
 
 const ItemListContainer = (props) => {
     return (
-        <Flex>
-            <Heading>{props.texto}</Heading>
+        <Box margin='20px'>
+            <Heading as='h2' size='lg'>{props.texto}</Heading>
+            <Flex>
             <CardMain />
-        </Flex>
+            </Flex>
+        </Box>
     )
 }
 
