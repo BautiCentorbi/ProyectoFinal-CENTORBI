@@ -11,7 +11,7 @@ function App() {
   return (
     <ChakraProvider>
       <NavBar />
-      <Heading> Soy un título</Heading>
+      <Heading marginTop='40px' align='center'> Infinite Clothing</Heading>
       <ItemListContainer />
     </ChakraProvider>
   )
