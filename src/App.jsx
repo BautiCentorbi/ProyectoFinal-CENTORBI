@@ -12,7 +12,7 @@ function App() {
     <ChakraProvider>
       <NavBar />
       <Heading marginTop='40px' align='center'> Infinite Clothing</Heading>
-      <ItemListContainer />
+      <ItemListContainer texto='Producto nº1'/>
     </ChakraProvider>
   )
 }
