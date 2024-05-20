@@ -8,10 +8,10 @@ import React from 'react'
 import CardMain from '../card/CardMain'
 
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({tittle}) => {
     return (
         <Box margin='20px'>
-            <Heading as='h2' size='lg'>{props.texto}</Heading>
+            <Heading as='h2' size='lg'>{tittle}</Heading>
             <Flex>
             <CardMain />
             </Flex>
