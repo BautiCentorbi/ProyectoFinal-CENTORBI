@@ -4,8 +4,9 @@ import { Box } from '@chakra-ui/react'
 
 const CartWidget = () => {
   return (
-    <Box >
+    <Box display='Flex' >
         <IoMdCart color='Black' size='40px'/>
+        <h4>0</h4>
     </Box>
   )
 }
