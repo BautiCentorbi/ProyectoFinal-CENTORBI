@@ -28,9 +28,9 @@ const NavBar = () => {
         <Spacer />
         <Flex justify='space-between'>
             <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' color='black'>
-                <ListItem><Link href='#'>Home</Link></ListItem>
-                <ListItem><Link href='#'>Nosotros</Link></ListItem>
-                <ListItem><Link href='#'>Productos</Link></ListItem>
+                <ListItem><Link to='#'>Home</Link></ListItem>
+                <ListItem><Link to='#'>Nosotros</Link></ListItem>
+                <ListItem><Link to='#'>Productos</Link></ListItem>
             </UnorderedList>
         </Flex>
         <Spacer />
