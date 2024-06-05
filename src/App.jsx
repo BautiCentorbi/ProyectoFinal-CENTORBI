@@ -17,7 +17,7 @@ function App() {
         <Heading marginTop='40px' align='center'> Infinite Clothing</Heading>
         <Routes>
           <Route path='/' element={<ItemListContainer tittle={'Productos de Infinite Clothing'}/>}/>
-          <Route path='/' element={<ItemListContainer tittle='Productos de Infinite Clothing' />}/>
+          <Route path='/category/:categoryId' element={<ItemListContainer tittle='Productos de Infinite Clothing' />}/>
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

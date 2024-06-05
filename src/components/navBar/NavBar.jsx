@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link as ReactRouterLink } from 'react-router-dom'
 import {
     Box,
     Flex,
+    Button,
     Image,
     Heading,
     List,
@@ -11,28 +13,44 @@ import {
     UnorderedList,
     Center,
     Spacer,
-    Link,
+    Link as ChakraLink,
+    Menu,
+    MenuItem,
+    MenuList,
+    MenuButton
 } from '@chakra-ui/react'
+import { FaChevronDown } from "react-icons/fa";
 import CartWidget from '../cartWidget/CartWidget'
 
 const NavBar = () => {
     return (
         <Flex align='Center' justify='Center' paddingX='40px' bg='#fff6e3'>
-        <Link>
+        <ChakraLink as={ReactRouterLink} to='/'>
             <Image
             boxSize='120px'
             src='./ifLogo.png'
             alt='Logo Infinite Clothing'
             />  
-        </Link>
+        </ChakraLink>
         <Spacer />
         <Flex justify='space-between'>
             <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' color='black'>
-                <ListItem><Link to='#'>Home</Link></ListItem>
-                <ListItem><Link to='#'>Nosotros</Link></ListItem>
-                <ListItem><Link to='#'>Productos</Link></ListItem>
+                <ListItem><ChakraLink as={ReactRouterLink} to='#'>Home</ChakraLink></ListItem>
+                <ListItem><ChakraLink as={ReactRouterLink} to='#'>Nosotros</ChakraLink></ListItem>
+                <ListItem><ChakraLink as={ReactRouterLink} to='#'>Productos</ChakraLink></ListItem>
             </UnorderedList>
         </Flex>
+        <Spacer />
+        <Menu minWidth={700}>  
+            <MenuButton as={Button} rightIcon={<FaChevronDown />}>
+                Productos
+            </MenuButton>
+            <MenuList>
+                <MenuItem><ChakraLink as={ReactRouterLink} to='/category/Remeras}'/>Remeras</MenuItem>
+                <MenuItem><ChakraLink as={ReactRouterLink} to='/category/Pantalones}'/>Pantalones</MenuItem>
+                <MenuItem><ChakraLink as={ReactRouterLink} to='/category/Gorros}'/>Gorros</MenuItem>
+            </MenuList>
+        </Menu>
         <Spacer />
         <CartWidget />
         </Flex>

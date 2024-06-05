@@ -52,3 +52,12 @@ export const getProducts = () => {
         }, 2000)
     })
 }
+
+export const getProductsFiltered = (category) => {
+    return new Promise((res) => {
+        const productosFiltrados = productos.filter((producto) => producto.categoria === category)
+        setTimeout(() => {
+            res(productosFiltrados)
+        }, 2000)
+    })
+}
