@@ -23,43 +23,52 @@ import CartWidget from '../cartWidget/CartWidget'
 
 const NavBar = () => {
     return (
-        <Flex align='Center' justify='Center' paddingX='40px' bg='#fff6e3'>
-        <Link to='/'>
+        <Flex align='Center' justify='Center' paddingX='80px' bg='#fff6e3'>
+            <Link to='/'>
             <Image
-            boxSize='120px'
+            aspectRatio={'inherit'}
+            h={'100px'}
+            my={'1vh'}
             src='./ifLogo.png'
             alt='Logo Infinite Clothing'
             />  
-        </Link>
-        <Spacer />
-        <Flex justify='space-between'>
-            <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' color='black'>
-                <ListItem><Link to='#'>Home</Link></ListItem>
-                <ListItem><Link to='#'>Nosotros</Link></ListItem>
-                <Menu>  
-                    <MenuButton as={Button} rightIcon={<FaChevronDown />}>
-                        Productos
-                    </MenuButton>
-                    <MenuList>
-                        <MenuItem>
-                            <Link to='/'>Todos</Link>
-                        </MenuItem>
-                        <MenuItem>
-                            <Link to='/category/Remeras'>Remeras</Link>
-                        </MenuItem>
-                        <MenuItem>
-                            <Link to='/category/Pantalones'>Pantalones</Link>
-                        </MenuItem>
-                        <MenuItem>
-                            <Link to='/category/Gorros'>Gorros</Link>
-                        </MenuItem>
-                    </MenuList>
-                </Menu>
-            </UnorderedList>
-        </Flex>
-        <Spacer />
-        <Spacer />
-        <CartWidget />
+            </Link>
+            <Spacer />
+            <Flex justify='space-between'>
+                <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' colorScheme={'Orange'}>
+                    <ListItem fontWeight={'semibold'} color={'#562B00'}>
+                        <Link to='#'>
+                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' Color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Home</Button>
+                        </Link>
+                    </ListItem>
+                    <ListItem fontWeight={'semibold'} color={'#562B00'}>
+                        <Link to='#'>
+                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' Color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Nosotros</Button>
+                        </Link>
+                    </ListItem>
+                    <Menu colorScheme={'Orange'}>  
+                        <MenuButton as={Button} rightIcon={<FaChevronDown />} borderRadius={'full'} fontSize={'lg'}  color={'white'} bgColor={'orange.900'} _hover={{ bgColor: 'orange.700' }} _active={{ bgColor: 'orange.700' }}> 
+                            Productos
+                        </MenuButton>
+                        <MenuList colorScheme={'Orange'} bgColor={'orange.50'}>
+                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                <Link to='/'>Todos</Link>
+                            </MenuItem>
+                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                <Link to='/category/Mouse'>Mouse</Link>
+                            </MenuItem>
+                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                <Link to='/category/Teclados'>Teclados</Link>
+                            </MenuItem>
+                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                <Link to='/category/Mousepad'>Mousepad</Link>
+                            </MenuItem>
+                        </MenuList>
+                    </Menu>
+                </UnorderedList>
+            </Flex>
+            <Spacer />
+            <CartWidget />
         </Flex>
     )
 }

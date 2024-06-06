@@ -25,17 +25,17 @@ const Item = ({nombre,precio,img,descripcion}) => {
                         src={img} borderRadius='lg'
                         alt={nombre}
                     />
-                    <Stack mt='6' spacing='3'>
-                        <Heading size='md' >{nombre}</Heading>
+                    <Stack mt='6' spacing='3' colorScheme={'Orange'}>
+                        <Heading size='md'>{nombre}</Heading>
                         <Text>{descripcion}</Text>
-                        <Text color='blue.600' fontSize='2rem'fontWeight='600'>{precio}</Text>
+                        <Text color='orange.700' fontSize='2rem'fontWeight='600'>{precio}</Text>
                     </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter>
-                    <ButtonGroup spacing='2'>
-                        <Button variant='solid' colorScheme='blue'>Añadir al Carrito</Button>
-                        <Button variant='ghost' colorScheme='blue'>Ver Detalle</Button>
+                    <ButtonGroup spacing='2' colorScheme={'Orange'}>
+                        <Button variant='solid' _hover={{bgColor: 'orange.700'}} bgColor={'orange.800'} color={'white'}>Añadir al Carrito</Button>
+                        <Button variant='ghost' _hover={{bgColor: 'orange.100'}} color={'orange.800'}>Ver Detalle</Button>
                     </ButtonGroup>
                 </CardFooter>
             </Card>

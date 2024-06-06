@@ -35,7 +35,7 @@ const ItemListContainer = ({tittle}) => {
             {
                 loading ?
                 <Flex align={'center'} justify={'center'} h={'60vh'}>
-                    <SquareLoader color="#36d7b7"/>
+                    <SquareLoader color="#964B00"/>
                 </Flex>
                 :
                 <ItemList products={products}/>
