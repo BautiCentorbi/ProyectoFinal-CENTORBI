@@ -54,7 +54,7 @@ export const getProducts = () => {
 }
 
 export const getProductsFiltered = (category) => {
-    return new Promise((res) => {
+    return new Promise ((res) => {
         const productosFiltrados = productos.filter((producto) => producto.categoria === category)
         setTimeout(() => {
             res(productosFiltrados)

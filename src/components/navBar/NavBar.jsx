@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link as ReactRouterLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
     Box,
     Flex,
@@ -13,7 +13,6 @@ import {
     UnorderedList,
     Center,
     Spacer,
-    Link as ChakraLink,
     Menu,
     MenuItem,
     MenuList,
@@ -25,32 +24,40 @@ import CartWidget from '../cartWidget/CartWidget'
 const NavBar = () => {
     return (
         <Flex align='Center' justify='Center' paddingX='40px' bg='#fff6e3'>
-        <ChakraLink as={ReactRouterLink} to='/'>
+        <Link to='/'>
             <Image
             boxSize='120px'
             src='./ifLogo.png'
             alt='Logo Infinite Clothing'
             />  
-        </ChakraLink>
+        </Link>
         <Spacer />
         <Flex justify='space-between'>
             <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' color='black'>
-                <ListItem><ChakraLink as={ReactRouterLink} to='#'>Home</ChakraLink></ListItem>
-                <ListItem><ChakraLink as={ReactRouterLink} to='#'>Nosotros</ChakraLink></ListItem>
-                <ListItem><ChakraLink as={ReactRouterLink} to='#'>Productos</ChakraLink></ListItem>
+                <ListItem><Link to='#'>Home</Link></ListItem>
+                <ListItem><Link to='#'>Nosotros</Link></ListItem>
+                <Menu>  
+                    <MenuButton as={Button} rightIcon={<FaChevronDown />}>
+                        Productos
+                    </MenuButton>
+                    <MenuList>
+                        <MenuItem>
+                            <Link to='/'>Todos</Link>
+                        </MenuItem>
+                        <MenuItem>
+                            <Link to='/category/Remeras'>Remeras</Link>
+                        </MenuItem>
+                        <MenuItem>
+                            <Link to='/category/Pantalones'>Pantalones</Link>
+                        </MenuItem>
+                        <MenuItem>
+                            <Link to='/category/Gorros'>Gorros</Link>
+                        </MenuItem>
+                    </MenuList>
+                </Menu>
             </UnorderedList>
         </Flex>
         <Spacer />
-        <Menu minWidth={700}>  
-            <MenuButton as={Button} rightIcon={<FaChevronDown />}>
-                Productos
-            </MenuButton>
-            <MenuList>
-                <MenuItem><ChakraLink as={ReactRouterLink} to='/category/Remeras}'/>Remeras</MenuItem>
-                <MenuItem><ChakraLink as={ReactRouterLink} to='/category/Pantalones}'/>Pantalones</MenuItem>
-                <MenuItem><ChakraLink as={ReactRouterLink} to='/category/Gorros}'/>Gorros</MenuItem>
-            </MenuList>
-        </Menu>
         <Spacer />
         <CartWidget />
         </Flex>
