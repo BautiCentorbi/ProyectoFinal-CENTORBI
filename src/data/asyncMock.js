@@ -45,7 +45,7 @@ export const productos = [
         img: 'Kb Akko HE Year of The Dragon.png',
     },
     {
-        id: 5,
+        id: 6,
         nombre: 'Skypad V2',
         descripcion: 'Mousepad de vidrio, provee un deslizamiento sin igual y provee una durabilidad increíble',
         precio: '$25000',
@@ -68,5 +68,14 @@ export const getProductsFiltered = (category) => {
         setTimeout(() => {
             res(productosFiltrados)
         }, 2000)
+    })
+}
+
+export const getProductsDetail = (id) => {
+    return new Promise((res) => {
+        const productoFiltrado = productos.find((prod) => prod.id === parseInt(id))
+        setTimeout (() => {
+            res(productoFiltrado)
+        }, 2000)  
     })
 }

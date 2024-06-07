@@ -14,6 +14,7 @@ import {
     Center,
     Spacer,
     Menu,
+    Link as ChakraLink,
     MenuItem,
     MenuList,
     MenuButton
@@ -24,7 +25,7 @@ import CartWidget from '../cartWidget/CartWidget'
 const NavBar = () => {
     return (
         <Flex align='Center' justify='Center' paddingX='80px' bg='#fff6e3'>
-            <Link to='/'>
+            <ChakraLink as={Link} to='/'>
             <Image
             aspectRatio={'inherit'}
             h={'100px'}
@@ -32,19 +33,19 @@ const NavBar = () => {
             src='./ifLogo.png'
             alt='Logo Infinite Clothing'
             />  
-            </Link>
+            </ChakraLink>
             <Spacer />
             <Flex justify='space-between'>
                 <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' colorScheme={'Orange'}>
                     <ListItem fontWeight={'semibold'} color={'#562B00'}>
-                        <Link to='#'>
-                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' Color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Home</Button>
-                        </Link>
+                        <ChakraLink as={Link} to='/'>
+                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Home</Button>
+                        </ChakraLink>
                     </ListItem>
                     <ListItem fontWeight={'semibold'} color={'#562B00'}>
-                        <Link to='#'>
-                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' Color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Nosotros</Button>
-                        </Link>
+                        <ChakraLink as={Link} to='/'>
+                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Nosotros</Button>
+                        </ChakraLink>
                     </ListItem>
                     <Menu colorScheme={'Orange'}>  
                         <MenuButton as={Button} rightIcon={<FaChevronDown />} borderRadius={'full'} fontSize={'lg'}  color={'white'} bgColor={'orange.900'} _hover={{ bgColor: 'orange.700' }} _active={{ bgColor: 'orange.700' }}> 
@@ -52,16 +53,16 @@ const NavBar = () => {
                         </MenuButton>
                         <MenuList colorScheme={'Orange'} bgColor={'orange.50'}>
                             <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <Link to='/'>Todos</Link>
+                                <ChakraLink as={Link} to='/'>Todos</ChakraLink>
                             </MenuItem>
                             <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <Link to='/category/Mouse'>Mouse</Link>
+                                <ChakraLink as={Link} to='/category/Mouse'>Mouse</ChakraLink>
                             </MenuItem>
                             <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <Link to='/category/Teclados'>Teclados</Link>
+                                <ChakraLink as={Link} to='/category/Teclados'>Teclados</ChakraLink>
                             </MenuItem>
                             <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <Link to='/category/Mousepad'>Mousepad</Link>
+                                <ChakraLink as={Link} to='/category/Mousepad'>Mousepad</ChakraLink>
                             </MenuItem>
                         </MenuList>
                     </Menu>

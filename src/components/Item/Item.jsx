@@ -11,12 +11,11 @@ import {
     CardHeader,
     CardBody,
     CardFooter,
-    Stack,
-    HStack,
-    VStack
+    Stack
 } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
-const Item = ({nombre,precio,img,descripcion}) => {
+const Item = ({nombre,precio,img,descripcion,id}) => {
   return (
     <Box margin='40px'>
             <Card maxW='sm'>
@@ -35,7 +34,9 @@ const Item = ({nombre,precio,img,descripcion}) => {
                 <CardFooter>
                     <ButtonGroup spacing='2' colorScheme={'Orange'}>
                         <Button variant='solid' _hover={{bgColor: 'orange.700'}} bgColor={'orange.800'} color={'white'}>Añadir al Carrito</Button>
-                        <Button variant='ghost' _hover={{bgColor: 'orange.100'}} color={'orange.800'}>Ver Detalle</Button>
+                        <Button variant='ghost' _hover={{bgColor: 'orange.100'}} color={'orange.800'}>
+                            <Link to={`/producto/${id}`}>Ver Detalle</Link>
+                        </Button>
                     </ButtonGroup>
                 </CardFooter>
             </Card>
