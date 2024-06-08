@@ -11,7 +11,6 @@ function App() {
 
   return (
     <ChakraProvider>
-      
       <BrowserRouter>
         <NavBar />
         <Routes>

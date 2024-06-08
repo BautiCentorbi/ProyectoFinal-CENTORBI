@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
                 <SquareLoader color="#964B00"/>
             </Flex>
             :
-            <ItemDetail producto={producto}/>
+            <ItemDetail {...producto}/>
         }
     </>
     )

@@ -19,6 +19,7 @@ import {
     MenuList,
     MenuButton
 } from '@chakra-ui/react'
+import InfiniteComputingLogo from '../../assets/ifLogo.png'
 import { FaChevronDown } from "react-icons/fa";
 import CartWidget from '../cartWidget/CartWidget'
 
@@ -30,13 +31,13 @@ const NavBar = () => {
             aspectRatio={'inherit'}
             h={'100px'}
             my={'1vh'}
-            src='./ifLogo.png'
-            alt='Logo Infinite Clothing'
+            src={InfiniteComputingLogo}
+            alt='Logo Infinite Computing'
             />  
             </ChakraLink>
             <Spacer />
-            <Flex justify='space-between' colorScheme={'Orange'}>
-                <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' >
+            <Flex justify='space-between'>
+                <UnorderedList colorScheme={'Orange'} fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' >
                     <ListItem fontWeight={'semibold'} color={'#562B00'}>
                         <ChakraLink as={Link} to='/'>
                             <Button size={'lg'} borderRadius={'full'} color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Home</Button>
