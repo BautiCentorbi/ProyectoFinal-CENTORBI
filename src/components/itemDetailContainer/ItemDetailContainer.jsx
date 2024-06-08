@@ -2,6 +2,8 @@ import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { SquareLoader } from 'react-spinners'
 import { getProductsDetail } from '../../data/asyncMock'
+import ItemDetail from '../itemDetail/ItemDetail'
+import { Flex } from '@chakra-ui/react'
 
 const ItemDetailContainer = () => {
   const [ producto, setProducto ] = useState({})
@@ -27,7 +29,7 @@ const ItemDetailContainer = () => {
             <ItemDetail producto={producto}/>
         }
     </>
-  )
+    )
 }
 
 export default ItemDetailContainer

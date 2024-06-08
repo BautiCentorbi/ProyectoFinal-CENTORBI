@@ -35,23 +35,23 @@ const NavBar = () => {
             />  
             </ChakraLink>
             <Spacer />
-            <Flex justify='space-between'>
-                <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' colorScheme={'Orange'}>
+            <Flex justify='space-between' colorScheme={'Orange'}>
+                <UnorderedList fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' >
                     <ListItem fontWeight={'semibold'} color={'#562B00'}>
                         <ChakraLink as={Link} to='/'>
-                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Home</Button>
+                            <Button size={'lg'} borderRadius={'full'} color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Home</Button>
                         </ChakraLink>
                     </ListItem>
                     <ListItem fontWeight={'semibold'} color={'#562B00'}>
                         <ChakraLink as={Link} to='/'>
-                            <Button size={'lg'} borderRadius={'full'} colorScheme='Orange' color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Nosotros</Button>
+                            <Button size={'lg'} borderRadius={'full'} color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Nosotros</Button>
                         </ChakraLink>
                     </ListItem>
-                    <Menu colorScheme={'Orange'}>  
+                    <Menu>  
                         <MenuButton as={Button} rightIcon={<FaChevronDown />} borderRadius={'full'} fontSize={'lg'}  color={'white'} bgColor={'orange.900'} _hover={{ bgColor: 'orange.700' }} _active={{ bgColor: 'orange.700' }}> 
                             Productos
                         </MenuButton>
-                        <MenuList colorScheme={'Orange'} bgColor={'orange.50'}>
+                        <MenuList bgColor={'orange.50'}>
                             <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
                                 <ChakraLink as={Link} to='/'>Todos</ChakraLink>
                             </MenuItem>

@@ -1,7 +1,6 @@
 import './App.css'
 import { ChakraProvider, Heading } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import ButtonMain from './components/button/ButtonMain'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/navBar/NavBar'
 import ItemListContainer from './components/itemListContainer/ItemListContainer'
