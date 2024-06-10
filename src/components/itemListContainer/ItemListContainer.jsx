@@ -28,7 +28,7 @@ const ItemListContainer = ({tittle}) => {
         .catch((err) => console.log(err))
         .finally(() => setLoading(false))
     },[categoryId])
-
+    
     return (
         <Flex direction={'column'} justify={'center'} align={'center'} margin='20px'>
             <Heading as='h2' size='lg'>{tittle}</Heading>

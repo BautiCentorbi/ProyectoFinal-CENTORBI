@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/navBar/NavBar'
 import ItemListContainer from './components/itemListContainer/ItemListContainer'
+import 'react-toastify/dist/ReactToastify.css'
 import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer'
 
 function App() {
