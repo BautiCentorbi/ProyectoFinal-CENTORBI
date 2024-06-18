@@ -14,6 +14,7 @@ import {
     Stack
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { costTransform } from '../../data/asyncMock'
 
 const Item = ({nombre,precio,img,descripcion,id}) => {
   return (
@@ -27,7 +28,7 @@ const Item = ({nombre,precio,img,descripcion,id}) => {
                 <Stack mt='6' spacing='3'>
                     <Heading size='md'>{nombre}</Heading>
                     <Text>{descripcion}</Text>
-                    <Text color='orange.700' fontSize='2rem'fontWeight='600'>{precio}</Text>
+                    <Text color='orange.700' fontSize='2rem'fontWeight='600'>{costTransform(precio)}</Text>
                 </Stack>
             </CardBody>
             <Divider />
