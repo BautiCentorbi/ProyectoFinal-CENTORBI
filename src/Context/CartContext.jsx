@@ -35,6 +35,9 @@ export const CartContextProvider = ({ children }) => {
     const totalPrice = () => {
         return cart.reduce((acc,el) => acc + el.precio * el.quantity, 0)
     }
+    const getQuantity = () => {
+        return cart.reduce((acc,el) => acc + el.quantity, 0)
+    }
 
     console.log(cart)
     return (
@@ -45,7 +48,8 @@ export const CartContextProvider = ({ children }) => {
                 addItem,
                 removeItem,
                 clearCart,
-                totalPrice
+                totalPrice,
+                getQuantity
             }}
         >
             {children}

@@ -9,7 +9,9 @@ import {
     Heading,
     CardFooter,
     Image,
-    Stack
+    Stack,
+    Spacer,
+    Divider
 } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import Context from '../../Context/CartContext'
@@ -19,7 +21,7 @@ import EmptyCart from '../../assets/EmptyCart.png'
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const { cart, removeItem, clearCart, totalPrice } = useContext(Context)
+    const { cart, removeItem, clearCart, totalPrice, getQuantity } = useContext(Context)
     console.table(cart)
 
     if (cart.length === 0) {
@@ -44,56 +46,77 @@ const Cart = () => {
         )
     } else {
         return (
-            <Flex wrap={'wrap'} justify={'center'} align={'center'} mt={5} mb={5}>
-                {cart.map((prod) => (
-                    <Card   
-                    key={prod.id}
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    variant='outline'
-                    >
-                        {/* <Image
-                            objectFit='cover'
-                            maxW={{ base: '100%', sm: '200px' }}
-                            src={prod.img}
-                            alt={prod.nombre}
-                        /> */}
-                        <Stack>
-                            <CardBody>
-                                <Heading size='md'>{prod.nombre}</Heading>
-                                <Flex justify={'space-between'}>
-                                    <Text py='2' paddingX={'2rem'} >
-                                        Cantidad: {prod.quantity}
-                                    </Text>
-                                    <Text py='2' paddingX={'2rem'} >
-                                        Precio unitario: {costTransform(prod.precio)}
-                                    </Text>
-                                    <Text py='2' paddingX={'2rem'} >
-                                        Subtotal: {costTransform(prod.precio)}
-                                    </Text>
-                                </Flex>
-                            </CardBody>
-
-                            <CardFooter>
-                                <ButtonGroup variant='solid' colorScheme='blue'>
-                                    <Button onClick={() => removeItem(prod.id)}>
-                                        <FaTrashAlt />
-                                    </Button>
-                                    <Button>
-                                        Comprar
-                                    </Button>
-                                </ButtonGroup>
-                            </CardFooter>
-                        </Stack>
-                    </Card>
-            ))}
+            <Flex direction={'row'} justify={'center'} align={'start'} mt={'10vh'} mb={'5vh'}>
+                <Flex direction={'column'} justify={'center'} align={'center'} mx={'2vw'}>
+                    {cart.map((prod) => (
+                        <Card   
+                        key={prod.id}
+                        direction={{ base: 'column', sm: 'row' }}
+                        overflow='hidden'
+                        variant='outline'
+                        borderRadius='lg'
+                        mb={'4vh'}
+                        minW={'100%'}
+                        >
+                            {/* <Image
+                                objectFit='cover'
+                                maxW={{ base: '100%', sm: '200px' }}
+                                src={prod.img}
+                                alt={prod.nombre}
+                            /> */}
+                            <Stack w={'100%'}>
+                                <CardBody>
+                                    <Heading size='md'>{prod.nombre}</Heading>
+                                    <Flex justify={'space-between'}>
+                                        <Text py='2' paddingX={'2rem'} >
+                                            Cantidad: {prod.quantity}
+                                        </Text>
+                                        <Text py='2' paddingX={'2rem'} >
+                                            Precio unitario: {costTransform(prod.precio)}
+                                        </Text>
+                                        <Text py='2' paddingX={'2rem'} >
+                                            Subtotal: {costTransform(prod.precio * prod.quantity)}
+                                        </Text>
+                                    </Flex>
+                                </CardBody>
+                                <CardFooter>
+                                    <Stack width={'100%'}>
+                                        <Button variant={'solid'} bgColor={'orange.800'} color={'#ffffff'} _hover={{bgColor: 'orange.600'}} >
+                                            Comprar
+                                        </Button>
+                                        <Button alignContent={'center'} variant={'ghost'} color={'red.600'} _hover={{bgColor: 'red.600', color: '#ffffff'}} onClick={() => removeItem(prod.id)}>
+                                            <FaTrashAlt />
+                                            <Text px={'1vw'}>
+                                                Eliminar producto
+                                            </Text>
+                                        </Button>
+                                    </Stack>
+                                </CardFooter>
+                            </Stack>
+                        </Card>
+                    ))}
+                </Flex>
                 <Box>
-                    <Button onClick={() => clearCart()}>
-                        Vaciar el carrito
-                    </Button>
-                    <Text>
-                        Total: {costTransform(totalPrice())}
-                    </Text>
+                    <Card>
+                        <CardBody>
+                            <Stack align={'center'}>
+                                <Heading textAlign={'center'}>Resumen de Compra</Heading>
+                                <Divider orientation='horizontal' />
+                                <Text mx={'4vw'} my={'2vh'}>
+                                    Aquí se mostrarán los importes de los productos agregados al carrito
+                                </Text>
+                                <Text>
+                                    Productos: {getQuantity()}
+                                </Text>
+                                <Text>
+                                    Total: {costTransform(totalPrice())}
+                                </Text>
+                                <Button onClick={() => clearCart()}>
+                                    Vaciar el carrito
+                                </Button>
+                            </Stack>
+                        </CardBody>
+                    </Card>
                 </Box>
             </Flex>
         )

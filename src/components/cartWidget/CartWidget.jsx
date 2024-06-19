@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { IoMdCart } from "react-icons/io";
-import { Box,Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
+import Context from '../../Context/CartContext'
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
+  const { getQuantity } = useContext(Context)
+  
   return (
-    <Box display='Flex' >
+    <Flex direction={'row'} >
         <Link to={'/cart'}>
           <IoMdCart color={'#562B00'} size='40px'/>
-          <Text></Text>
         </Link>
-    </Box>
+        <Text>{ getQuantity() > 0 && getQuantity() }</Text>
+    </Flex>
   )
 }
 
