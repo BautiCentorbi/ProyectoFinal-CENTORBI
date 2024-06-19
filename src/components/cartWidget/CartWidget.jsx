@@ -10,7 +10,7 @@ const CartWidget = () => {
   return (
     <Flex direction={'row'} >
         <Link to={'/cart'}>
-          <IoMdCart color={'#562B00'} size='40px'/>
+          <IoMdCart color={'#562B00'} size={'2.5rem'}/>
         </Link>
         <Text>{ getQuantity() > 0 && getQuantity() }</Text>
     </Flex>

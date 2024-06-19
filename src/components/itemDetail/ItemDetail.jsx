@@ -23,12 +23,12 @@ const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock}) => {
   }
 
   return (
-    <Box margin={'40px'}>
+    <Box margin={'4rem'}>
       <Card minW={'msm'} colorScheme='Orange'>
         <CardBody>
           <Flex>
             <Image 
-              w={'600px'}
+              boxSize={'30rem'}
               src={img} borderRadius={'lg'}
               alt={nombre}
             />

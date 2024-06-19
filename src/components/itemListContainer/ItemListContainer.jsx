@@ -30,7 +30,7 @@ const ItemListContainer = ({tittle}) => {
     },[categoryId])
     
     return (
-        <Flex direction={'column'} justify={'center'} align={'center'} margin='20px'>
+        <Flex direction={'column'} justify={'center'} align={'center'} margin={'1.25rem'}>
             <Heading as='h2' size='lg'>{tittle}</Heading>
             {
                 loading ?

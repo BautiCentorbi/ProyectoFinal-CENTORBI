@@ -18,7 +18,7 @@ import { costTransform } from '../../data/asyncMock'
 
 const Item = ({nombre,precio,img,descripcion,id}) => {
   return (
-    <Box margin='40px'>
+    <Box margin='2.5rem'>
         <Card maxW='sm' colorScheme={'Orange'}>
             <CardBody>
                 <Image 

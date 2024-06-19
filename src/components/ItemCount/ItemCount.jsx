@@ -16,7 +16,7 @@ const ItemCount = ({stock, valorInicial, onAdd}) => {
         <Heading size={'lg'} textAlign={'center'}>Cantidad de productos:</Heading>
         <Flex w={'100%'} justify={'center'} align={'center'}>
           <Button variant={'solid'} bgColor={'orange.400'} onClick={decrementar}><Text fontWeight={'bold'} fontSize={'lg'}>-</Text></Button>
-          <Box borderRadius={'16px'} border={'1px'} borderColor={'lightgray'} w={'100%'} marginX={'16px'}>
+          <Box borderRadius={'1rem'} border={'0.06rem'} borderColor={'lightgray'} w={'100%'} marginX={'1rem'}>
             <Heading fontWeight={'md'} size={'lg'} textAlign={'center'}>{count}</Heading>
           </Box>
           <Button variant={'solid'} bgColor={'orange.400'} onClick={incrementar}><Text fontWeight={'bold'} fontSize={'lg'}>+</Text></Button>

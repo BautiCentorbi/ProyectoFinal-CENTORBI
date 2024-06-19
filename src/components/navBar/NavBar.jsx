@@ -25,11 +25,11 @@ import CartWidget from '../cartWidget/CartWidget'
 
 const NavBar = () => {
     return (
-        <Flex align='Center' justify='Center' paddingX='80px' bg='#fff6e3'>
+        <Flex align='Center' justify='Center' paddingX='5rem' bg='#fff6e3'>
             <ChakraLink as={Link} to='/'>
             <Image
             aspectRatio={'inherit'}
-            h={'100px'}
+            h={'6.25rem'}
             my={'1vh'}
             src={InfiniteComputingLogo}
             alt='Logo Infinite Computing'
@@ -37,7 +37,7 @@ const NavBar = () => {
             </ChakraLink>
             <Spacer />
             <Flex justify='space-between'>
-                <UnorderedList colorScheme={'Orange'} fontSize='20px' styleType='none' display='Flex' justifyContent='space-between' minWidth='450px' >
+                <UnorderedList colorScheme={'Orange'} fontSize='1.2rem' styleType='none' display='Flex' justifyContent='space-between' minWidth='28.125rem' >
                     <ListItem fontWeight={'semibold'} color={'#562B00'}>
                         <ChakraLink as={Link} to='/'>
                             <Button size={'lg'} borderRadius={'full'} color={'orange.700'} _hover={{bgColor: 'orange.200'}} variant={'ghost'}>Home</Button>

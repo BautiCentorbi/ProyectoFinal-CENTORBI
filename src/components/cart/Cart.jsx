@@ -30,7 +30,7 @@ const Cart = () => {
             <Card>
                 <CardBody>
                     <Stack align={'center'}>
-                        <Image src={EmptyCart} width={'200px'}/>
+                        <Image src={EmptyCart} width={'12.5'}/>
                         <Heading textAlign={'center'}>Tu carrito está vacío</Heading>
                         <Text mx={'4vw'} my={'2vh'}>
                             Podés comenzar a incorporar productos al carrito.
