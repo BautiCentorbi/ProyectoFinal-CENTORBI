@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
 import Context from '../../Context/CartContext'
-import { costTransform } from '../../data/asyncMock'
+import { costTransform } from '../../config/firebase'
 import { FaCheck } from "react-icons/fa";
 
 const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock}) => {

@@ -8,16 +8,16 @@ import {
     Heading,
     Divider,
     Card,
-    CardHeader,
     CardBody,
     CardFooter,
     Stack
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import { costTransform } from '../../data/asyncMock'
+import { costTransform } from '../../config/firebase'
 
 const Item = ({nombre,precio,img,descripcion,id}) => {
-  return (
+    
+    return (
     <Box margin='2.5rem'>
         <Card maxW='sm' colorScheme={'Orange'}>
             <CardBody>

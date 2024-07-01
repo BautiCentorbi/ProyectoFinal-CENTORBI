@@ -4,11 +4,12 @@ import {
     Flex,
     Heading
 } from '@chakra-ui/react'
-import { getProducts, getProductsFiltered } from '../../data/asyncMock'
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { SquareLoader } from 'react-spinners'
 import { useParams } from 'react-router-dom'
+import { db } from '../../config/firebase'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 
 const ItemListContainer = ({tittle}) => {
@@ -16,17 +17,35 @@ const ItemListContainer = ({tittle}) => {
     const [ loading, setLoading ] = useState(true)
     
     const { categoryId } = useParams()
+    console.log(db)
     
     console.log(categoryId)
 
     useEffect(() => {
         setLoading(true)
-        const dataProductos = categoryId ? getProductsFiltered(categoryId) : getProducts()
+        
+        const getData = async () => {
+            const coleccion = collection(db, 'productos')
+            
+            const queryRef = !categoryId ?
+            coleccion 
+            : 
+            query(coleccion, where('categoria', '==', categoryId))
+        
+            const response = await getDocs(queryRef)
 
-        dataProductos
-        .then((data) => setProducts(data))
-        .catch((err) => console.log(err))
-        .finally(() => setLoading(false))
+            const productos = response.docs.map((doc) => {
+                const newItem = {
+                    ...doc.data(),
+                    id: doc.id
+                }
+                return newItem
+            })
+            console.log(productos)
+            setProducts(productos)
+            setLoading(false)
+        }
+        getData()
     },[categoryId])
     
     return (
