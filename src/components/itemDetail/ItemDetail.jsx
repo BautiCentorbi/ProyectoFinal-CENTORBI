@@ -15,7 +15,9 @@ const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock}) => {
     const item = {
       id,
       nombre,
-      precio
+      precio,
+      img,
+      stock
     }
     addItem(item,quantity)
     toast((quantity == 1) ? `Agregaste ${quantity} unidad` : `Agregaste ${quantity} unidades`)

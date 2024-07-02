@@ -11,12 +11,13 @@ import {
     Image,
     Stack,
     Spacer,
-    Divider
+    Divider,
+    Img
 } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import Context from '../../Context/CartContext'
 import { FaTrashAlt } from "react-icons/fa";
-import { costTransform } from '../../data/asyncMock'
+import { costTransform } from '../../config/firebase'
 import EmptyCart from '../../assets/EmptyCart.png'
 import { Link } from 'react-router-dom';
 
@@ -30,7 +31,7 @@ const Cart = () => {
             <Card>
                 <CardBody>
                     <Stack align={'center'}>
-                        <Image src={EmptyCart} width={'12.5'}/>
+                        <Image src={EmptyCart} width={'12.5rem'}/>
                         <Heading textAlign={'center'}>Tu carrito está vacío</Heading>
                         <Text mx={'4vw'} my={'2vh'}>
                             Podés comenzar a incorporar productos al carrito.
@@ -58,12 +59,13 @@ const Cart = () => {
                         mb={'4vh'}
                         minW={'100%'}
                         >
-                            {/* <Image
-                                objectFit='cover'
-                                maxW={{ base: '100%', sm: '200px' }}
-                                src={prod.img}
+                            <Image 
+                                src={prod.img} 
+                                boxSize={'fit-content'}
+                                objectFit={'cover'}
+                                maxW={{base: '100%', sm: '200px'}}
                                 alt={prod.nombre}
-                            /> */}
+                            />
                             <Stack w={'100%'}>
                                 <CardBody>
                                     <Heading size='md'>{prod.nombre}</Heading>
