@@ -26,11 +26,11 @@ export const CartContextProvider = ({ children }) => {
         return cart.some((prod) => prod.id === id)
     }
     const removeItem = (id) => {
-        const updateCart = cart.filter((prod) => prod.id !== parseInt(id))
+        const updateCart = cart.filter((prod) => prod.id !== id)
         setCart([...updateCart])
     }
     const clearCart = () => {
-        setCart = ([])
+        setCart([])
     }
     const totalPrice = () => {
         return cart.reduce((acc,el) => acc + el.precio * el.quantity, 0)
