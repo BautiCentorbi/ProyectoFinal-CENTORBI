@@ -1,7 +1,7 @@
 import './App.css'
-import { ChakraProvider, Heading } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, HashRouter } from 'react-router-dom'
 import NavBar from './components/navBar/NavBar'
 import ItemListContainer from './components/itemListContainer/ItemListContainer'
 import 'react-toastify/dist/ReactToastify.css'
@@ -17,7 +17,7 @@ function App() {
   return (
     <ChakraProvider>
       <CartContextProvider>
-        <BrowserRouter>
+        <HashRouter>
           <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer tittle={'Productos de Infinite Computing'}/>}/>
@@ -27,7 +27,7 @@ function App() {
             <Route path='/checkout' element={<Checkout />} />
             <Route path='*' element={<NotFound />} /> 
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </CartContextProvider>
     </ChakraProvider>
   )
