@@ -23,7 +23,6 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const { cart, removeItem, clearCart, totalPrice, getQuantity } = useContext(Context)
-    console.table(cart)
 
     if (cart.length === 0) {
         return (
@@ -113,6 +112,11 @@ const Cart = () => {
                                 <Text>
                                     Total: {costTransform(totalPrice())}
                                 </Text>
+                                <Link to={'/Checkout'}>
+                                    <Button>
+                                        Finalizar Compra
+                                    </Button>
+                                </Link>
                                 <Button onClick={() => clearCart()}>
                                     Vaciar el carrito
                                 </Button>

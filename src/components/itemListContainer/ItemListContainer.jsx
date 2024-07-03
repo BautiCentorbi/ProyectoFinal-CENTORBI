@@ -17,9 +17,6 @@ const ItemListContainer = ({tittle}) => {
     const [ loading, setLoading ] = useState(true)
     
     const { categoryId } = useParams()
-    console.log(db)
-    
-    console.log(categoryId)
 
     useEffect(() => {
         setLoading(true)
@@ -41,7 +38,6 @@ const ItemListContainer = ({tittle}) => {
                 }
                 return newItem
             })
-            console.log(productos)
             setProducts(productos)
             setLoading(false)
         }

@@ -53,18 +53,26 @@ const NavBar = () => {
                             Productos
                         </MenuButton>
                         <MenuList bgColor={'orange.50'}>
-                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <ChakraLink as={Link} to='/'>Todos</ChakraLink>
-                            </MenuItem>
-                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <ChakraLink as={Link} to='/category/Mouse'>Mouse</ChakraLink>
-                            </MenuItem>
-                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <ChakraLink as={Link} to='/category/Teclados'>Teclados</ChakraLink>
-                            </MenuItem>
-                            <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
-                                <ChakraLink as={Link} to='/category/Mousepad'>Mousepad</ChakraLink>
-                            </MenuItem>
+                            <ChakraLink as={Link} to='/'>
+                                <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                    Todos
+                                </MenuItem>
+                            </ChakraLink>
+                            <ChakraLink as={Link} to='/category/Mouse'>
+                                <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                    Mouse
+                                </MenuItem>
+                            </ChakraLink>
+                            <ChakraLink as={Link} to='/category/Teclados'>
+                                <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                        Teclados
+                                </MenuItem>
+                            </ChakraLink>
+                            <ChakraLink as={Link} to='/category/Mousepad'>
+                                <MenuItem _hover={{fontWeight:'semibold', bgColor:'orange.100'}} fontWeight={'medium'} color={'#562B00'} bgColor={'orange.50'}>
+                                    Mousepad
+                                </MenuItem>
+                            </ChakraLink>
                         </MenuList>
                     </Menu>
                 </UnorderedList>

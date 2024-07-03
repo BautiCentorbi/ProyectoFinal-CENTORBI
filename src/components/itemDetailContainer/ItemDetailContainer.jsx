@@ -26,7 +26,6 @@ const ItemDetailContainer = () => {
         }
         getData()
     }, [])
-    console.log(producto)
 
     return (
     <>
