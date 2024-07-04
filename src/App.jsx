@@ -12,7 +12,6 @@ import Cart from './components/cart/Cart'
 import Checkout from './components/Checkout/Checkout'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <ChakraProvider>
