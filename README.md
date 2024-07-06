@@ -1,8 +1,68 @@
-# React + Vite
+![image](/src/assets/ifLogo.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Infinite Computing (E-Commerce Web)
 
-Currently, two official plugins are available:
+This website was developed by Bautista Centorbi, for the Coderhouse ReactJs course. In this space i've been applying all the contents seen during the whole course.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This web is developed with a Vite based installation, using ReactJs and Chakra UI for the visual styling.
+
+## Installation
+
+- Clone the repository
+    - git clone https://github.com/BautiCentorbi/ProyectoFinal-CENTORBI
+- Move to the root folder
+    - cd ProyectoFinal-CENTORBI
+- Install the Dependencies
+    -npm install
+- Compilling
+    - npm run dev
+
+## Deploy
+
+Vercel:
+[Infinite Computing](https://infinite-computing.vercel.app/)
+
+## Preview
+
+![image](/src/assets/)
+
+## Built-In
+* React
+* Vite
+* Firebase
+
+## Dependencies
+* Chakra UI
+* Axios
+* React Icons
+* React Router DOM
+* React Spinners
+* React Toastify
+* SweetAlert 2
+* FontSource
+
+
+## Project Structure
+
+### NavBar
+* Logo
+* Navigation Menu* 
+* Cart Icon   
+
+### Body
+* Product's List
+* Product's Detail
+
+### Cart
+* Preview of the shopping cart
+
+### Checkout
+Final form for a complete user info in order to generate a "Order".
+
+
+## Contact
+
+Bautista Centorbi
+
+#### [Linkedin](https://www.linkedin.com/in/bautista-centorbi-designer/)
+#### [Github](https://github.com/BautiCentorbi/)

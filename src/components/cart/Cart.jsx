@@ -1,7 +1,6 @@
 import {
     Box,
     Button,
-    ButtonGroup,
     Flex,
     Card,
     CardBody,
@@ -10,9 +9,8 @@ import {
     CardFooter,
     Image,
     Stack,
-    Spacer,
     Divider,
-    Img
+    Link as ChakraLink
 } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import Context from '../../Context/CartContext'
@@ -22,7 +20,7 @@ import EmptyCart from '../../assets/EmptyCart.png'
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const { cart, removeItem, clearCart, totalPrice, getQuantity } = useContext(Context)
+    const { cart, removeItem, clearCart, totalPrice, getQuantity, saveLocalStorage } = useContext(Context)
 
     if (cart.length === 0) {
         return (
@@ -67,7 +65,7 @@ const Cart = () => {
                             />
                             <Stack w={'100%'}>
                                 <CardBody>
-                                    <Heading size='md'>{prod.nombre}</Heading>
+                                    <Heading fontSize='2rem'>{prod.nombre}</Heading>
                                     <Flex justify={'space-between'}>
                                         <Text py='2' paddingX={'2rem'} >
                                             Cantidad: {prod.quantity}
@@ -106,18 +104,18 @@ const Cart = () => {
                                 <Text mx={'4vw'} my={'2vh'}>
                                     Aquí se mostrarán los importes de los productos agregados al carrito
                                 </Text>
-                                <Text>
-                                    Productos: {getQuantity()}
-                                </Text>
-                                <Text>
+                                <Heading>
                                     Total: {costTransform(totalPrice())}
-                                </Text>
-                                <Link to={'/Checkout'}>
-                                    <Button>
+                                </Heading>
+                                <Heading size={'lg'}>
+                                    Productos: {getQuantity()}
+                                </Heading>
+                                <ChakraLink w={'100%'} as={Link} to={'/Checkout'}>
+                                    <Button w={'100%'} size={'lg'} variant={'solid'} color={'white'} bgColor={'orange.800'} _hover={{bgColor: 'orange.600'}} onClick={() => saveLocalStorage()}>
                                         Finalizar Compra
                                     </Button>
-                                </Link>
-                                <Button onClick={() => clearCart()}>
+                                </ChakraLink>
+                                <Button w={'100%'} size={'lg'} variant={'solid'} color={'orange.600'} bgColor={'orange.100'} _hover={{bgColor: 'orange.200'}} onClick={() => clearCart()}>
                                     Vaciar el carrito
                                 </Button>
                             </Stack>

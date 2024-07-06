@@ -10,8 +10,6 @@ const firebaseConfig = {
     appId: "1:237227780931:web:9ea9c982692f8421a21df6"
 }
 
-console.log('Conectando a DB')
-
 const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
 
@@ -21,9 +19,3 @@ export const costTransform = (precio) => {
         precioTransformado
     )
 }
-
-// productos.forEach((prod) => {
-//     addDoc(collection(db, 'productos'), prod)
-//     .then((el) => console.log(`Se agregó el producto id: ${el.id}`))
-//     .catch((err) => console.log(err))
-// })

@@ -2,7 +2,7 @@ import { Box, Input, FormControl, FormLabel, FormErrorMessage, FormHelperText, F
 import React, { useContext, useState } from 'react'
 import Context from '../../Context/CartContext'
 import Swal from 'sweetalert2'
-import { Timestamp, addDoc, collection } from 'firebase/firestore'
+import { Timestamp, doc,   addDoc, collection, getDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../../config/firebase'
 import { useNavigate } from 'react-router-dom'
 
@@ -16,7 +16,7 @@ const Checkout = () => {
   const [ error, setError ] = useState({})
   const [ loading, setLoading ] = useState(false)
 
-  const { cart, totalPrice, clearCart } = useContext(Context)
+  const { cart, setCart, totalPrice, clearCart, loadLocalStorage } = useContext(Context)
 
   const navigate = useNavigate()
 
@@ -67,9 +67,34 @@ const Checkout = () => {
       return
     }
     
+    if (cart.length === 0){
+      Swal.fire({
+        title: "Carrito Vacío",
+        text: 'Debes agregar algo al carrito antes de generar una orden',
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      }).then(() => {
+        navigate('/')
+      });
+      return
+    }
+
     const coleccion = collection(db, 'orders')
 
     try {
+      for (const item of cart) {
+        const docRef = doc(db, 'productos', item.id)
+        const productDoc = await getDoc(docRef)
+
+        const currentStock =  productDoc.data().stock
+
+        if (currentStock >= item.quantity){
+          await updateDoc(docRef, {
+            stock: currentStock - item.quantity
+          })
+        }
+      }
+      
       const order = {
           buyer: user,
           cart: cart,
@@ -77,18 +102,17 @@ const Checkout = () => {
           fecha: Timestamp.now()
       }
       const orderRef = await addDoc(coleccion, order)
-      Swal.fire({
-        title: "¡Gracias por confiar en nosotros, Que lo disfrutes!",
-        text: `El número de tu orden es: ${orderRef.id}`,
-        icon: "success",
-        confirmButtonText: "Volver al inicio",
-      }).then(() => {
+        Swal.fire({
+          title: "¡Gracias por confiar en nosotros, Que lo disfrutes!",
+          text: `El número de tu orden es: ${orderRef.id}`,
+          icon: "success",
+          confirmButtonText: "Volver al inicio",
+        }).then(() => {
         clearCart()
         navigate('/')
       });
 
     } catch (err){
-      console.log(err)
     }
   }
 

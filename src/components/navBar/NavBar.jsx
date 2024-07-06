@@ -1,17 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
-    Box,
     Flex,
     Button,
     Image,
-    Heading,
-    List,
     ListItem,
-    ListIcon,
-    OrderedList,
     UnorderedList,
-    Center,
     Spacer,
     Menu,
     Link as ChakraLink,
@@ -25,7 +19,7 @@ import CartWidget from '../cartWidget/CartWidget'
 
 const NavBar = () => {
     return (
-        <Flex align='Center' justify='Center' paddingX='5rem' bg='#fff6e3'>
+        <Flex align='Center' justify='Center' paddingX='5rem'>
             <ChakraLink as={Link} to='/'>
             <Image
             aspectRatio={'inherit'}

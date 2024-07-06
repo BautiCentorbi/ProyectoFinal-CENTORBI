@@ -36,21 +36,26 @@ const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock}) => {
             />
             <Box ml={'10vh'}>
               <Stack mt={'6'} spacing={'3'}>
-                <Heading size={'xl'}>{nombre}</Heading>
+                <Heading fontSize={'2.5rem'}>{nombre}</Heading>
                 <Text fontSize={'lg'}>{lgDescripcion}</Text>
-                <Text color='orange.700' fontSize='3rem'fontWeight='600'>{costTransform(precio)}</Text>
+                <Heading color='orange.700' fontSize='3.5rem'fontWeight='700'>{costTransform(precio)}</Heading>
+                <Text fontSize={'1.5rem'}>Cantidad Disponible: {stock}</Text>
                 <ToastContainer />
                 {
                   cantidad > 0 ?
                   <Stack>
                     <Flex align={'center'} justify={'center'}>
                       <FaCheck color='#14991e' size={'3vh'}/>
-                      <Text fontWeight={'bold'} fontSize={'xl'} mx={'5vh'} my={'2vh'} color={'#14991e'}>
+                      <Text fontWeight={'bold'} fontSize={'lg'} mx={'5vh'} my={'2vh'} color={'#14991e'}>
                         Has agregado correctamente el producto
                       </Text>
                     </Flex>
-                    <Button w={'100%'} size={'lg'} variant={'solid'} color={'orange.600'} bgColor={'orange.100'} _hover={{bgColor: 'orange.200'}}><Link to='/cart'>Ir al Carrito</Link></Button>
-                    <Button w={'100%'} size={'lg'} variant={'solid'} color={'white'} bgColor={'orange.800'} _hover={{bgColor: 'orange.600'}}><Link to='/'>Seguir Comprando</Link></Button>
+                    <Link to='/cart'>
+                      <Button w={'100%'} size={'lg'} variant={'solid'} color={'orange.600'} bgColor={'orange.100'} _hover={{bgColor: 'orange.200'}}>Ir al Carrito</Button>
+                    </Link>
+                    <Link to='/'>
+                      <Button w={'100%'} size={'lg'} variant={'solid'} color={'white'} bgColor={'orange.800'} _hover={{bgColor: 'orange.600'}}>Seguir Comprando</Button>
+                    </Link>
                   </Stack>
                   :
                   <ItemCount stock={stock} valorInicial={1} onAdd={onAdd} />

@@ -46,7 +46,7 @@ const ItemListContainer = ({tittle}) => {
     
     return (
         <Flex direction={'column'} justify={'center'} align={'center'} margin={'1.25rem'}>
-            <Heading as='h2' size='lg'>{tittle}</Heading>
+            <Heading as='h2' size='xl' fontWeight={'800'} color={'orange.800'} >{tittle}</Heading>
             {
                 loading ?
                 <Flex align={'center'} justify={'center'} h={'60vh'}>
