@@ -38,14 +38,36 @@ export const CartContextProvider = ({ children }) => {
     const getQuantity = () => {
         return cart.reduce((acc,el) => acc + el.quantity, 0)
     }
+    const decrementarItem = (id) => {
+        const updatedCart = cart.map((prod) => {
+            if (prod.id === id){
+                const newQuantity = Math.max(prod.quantity - 1, 1)
+                return {
+                    ...prod, quantity: newQuantity
+                }
+            }
+            return prod
+        })
+        setCart(updatedCart)
+    }
+    const incrementarItem = (id, stock) => {
+        const updatedCart = cart.map((prod) => {
+            if (prod.id === id){
+                const newQuantity = Math.min(prod.quantity + 1, stock)
+                return {
+                    ...prod, quantity: newQuantity
+                }
+            }
+            return prod
+        })
+        setCart(updatedCart)
+    }
 
-    const saveLocalStorage = () => {
-        localStorage.setItem(cart)
+    const currentQuantity = (id) => {
+        const prod = cart.find((item) => item.id === id)
+        return prod ? prod.quantity : 0
     }
-    const loadLocalStorage = () => {
-        localStorage.getItem(cart)
-        setCart(cart)
-    }
+
 
     return (
         <Context.Provider
@@ -57,8 +79,9 @@ export const CartContextProvider = ({ children }) => {
                 clearCart,
                 totalPrice,
                 getQuantity,
-                saveLocalStorage,
-                loadLocalStorage
+                decrementarItem,
+                incrementarItem,
+                currentQuantity
             }}
         >
             {children}

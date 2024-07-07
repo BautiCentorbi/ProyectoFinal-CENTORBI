@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Text, Box, Flex, Heading, Stack } from '@chakra-ui/react'
 
-const ItemCount = ({stock, valorInicial, onAdd}) => {
+const ItemCount = ({stock, valorInicial, onAdd, maxAvailable}) => {
   const [ count, setCount ] = useState(valorInicial)
 
   const incrementar = () => {
-    count < stock && setCount(count + 1)
+    count < maxAvailable && setCount(count + 1)
   }
   const decrementar = () => {
     count > valorInicial && setCount(count - 1)

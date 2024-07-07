@@ -1,4 +1,4 @@
-import { Box, Input, FormControl, FormLabel, FormErrorMessage, FormHelperText, Flex, Heading, Button } from '@chakra-ui/react'
+import { Box, Input, FormControl, FormLabel, FormErrorMessage, FormHelperText, Flex, Heading, Button, Card, CardBody } from '@chakra-ui/react'
 import React, { useContext, useState } from 'react'
 import Context from '../../Context/CartContext'
 import Swal from 'sweetalert2'
@@ -16,7 +16,7 @@ const Checkout = () => {
   const [ error, setError ] = useState({})
   const [ loading, setLoading ] = useState(false)
 
-  const { cart, setCart, totalPrice, clearCart, loadLocalStorage } = useContext(Context)
+  const { cart, setCart, totalPrice, clearCart } = useContext(Context)
 
   const navigate = useNavigate()
 
@@ -72,6 +72,7 @@ const Checkout = () => {
         title: "Carrito Vacío",
         text: 'Debes agregar algo al carrito antes de generar una orden',
         icon: "error",
+        confirmButtonColor: "#7B341E",
         confirmButtonText: "Aceptar",
       }).then(() => {
         navigate('/')
@@ -106,6 +107,7 @@ const Checkout = () => {
           title: "¡Gracias por confiar en nosotros, Que lo disfrutes!",
           text: `El número de tu orden es: ${orderRef.id}`,
           icon: "success",
+          confirmButtonColor: "#7B341E",
           confirmButtonText: "Volver al inicio",
         }).then(() => {
         clearCart()
@@ -117,29 +119,32 @@ const Checkout = () => {
   }
 
   return (
-    <Flex mx={'8vw'} w={'30rem'}>
-      <Flex direction={'column'}>
-        <Heading>Datos de Facturación</Heading>
-        <FormControl isRequired isInvalid = {error}>
-          <FormLabel>Ingresa tu Nombre</FormLabel>
-          <Input type='text' name='name'
-          placeholder='Pedro Ortega' onChange={updateUser}/>
-          <FormErrorMessage>{error.name}</FormErrorMessage>
-          <FormLabel>Ingresa tu email</FormLabel>
-          <Input type='email' name='email'
-          placeholder='pedroortega@correo.com' onChange={updateUser}/>
-          <FormErrorMessage>{error.email}</FormErrorMessage>
-          <FormLabel>Repite tu email</FormLabel>
-          <Input type='email' name='repeatedEmail'
-          placeholder='pedroortega@correo.com' onChange={updateUser}/>
-          <FormErrorMessage>{error.repeatedEmail}</FormErrorMessage>
-          <FormLabel>Ingresa tu número de teléfono</FormLabel>
-          <Input type='number' name='phoneNumber' placeholder='12345678910' onChange={updateUser} />
-          <FormErrorMessage>{error.phoneNumber}</FormErrorMessage>
-        </FormControl>
-        <Button onClick={getOrder}>Finalizar Compra</Button>
-      </Flex>
-      
+    <Flex w={'100vw'} align={'center'} justify={'center'}>
+    <Card>
+      <CardBody p={'3rem'}>
+        <Flex direction={'column'} h={'100%'} w={'30rem'}>
+          <Heading>Datos de Facturación</Heading>
+          <FormControl isRequired isInvalid = {error}>
+            <FormLabel>Ingresa tu Nombre</FormLabel>
+            <Input type='text' name='name'
+            placeholder='Pedro Ortega' onChange={updateUser}/>
+            <FormErrorMessage>{error.name}</FormErrorMessage>
+            <FormLabel>Ingresa tu email</FormLabel>
+            <Input type='email' name='email'
+            placeholder='pedroortega@correo.com' onChange={updateUser}/>
+            <FormErrorMessage>{error.email}</FormErrorMessage>
+            <FormLabel>Repite tu email</FormLabel>
+            <Input type='email' name='repeatedEmail'
+            placeholder='pedroortega@correo.com' onChange={updateUser}/>
+            <FormErrorMessage>{error.repeatedEmail}</FormErrorMessage>
+            <FormLabel>Ingresa tu número de teléfono</FormLabel>
+            <Input type='number' name='phoneNumber' placeholder='12345678910' onChange={updateUser} />
+            <FormErrorMessage>{error.phoneNumber}</FormErrorMessage>
+          </FormControl>
+          <Button w={'100%'} size={'lg'} variant={'solid'} color={'white'} bgColor={'orange.800'} _hover={{bgColor: 'orange.600'}} my={'1rem'} onClick={getOrder}>Finalizar Compra</Button>
+        </Flex>
+      </CardBody>
+    </Card>
     </Flex>
   )
 }

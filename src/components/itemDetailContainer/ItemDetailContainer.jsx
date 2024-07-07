@@ -1,16 +1,18 @@
-import React, { useEffect,useState } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { SquareLoader } from 'react-spinners'
-import ItemDetail from '../itemDetail/ItemDetail'
+import ItemDetail from '../ItemDetail/ItemDetail'
 import { Flex } from '@chakra-ui/react'
 import { db } from '../../config/firebase'
 import { doc, getDoc } from 'firebase/firestore'
+import Context from '../../Context/CartContext'
 
 const ItemDetailContainer = () => {
   const [ producto, setProducto ] = useState({})
   const [ loading, setLoading ] = useState(true)
   const { productId } = useParams()
-  
+  const { currentQuantity } = useContext(Context)  
+    
     useEffect(() => {
         const getData = async () => {
             const queryRef = doc(db,'productos', productId)
@@ -35,7 +37,7 @@ const ItemDetailContainer = () => {
                 <SquareLoader color="#964B00"/>
             </Flex>
             :
-            <ItemDetail {...producto}/>
+            <ItemDetail {...producto} currentQuantity={currentQuantity(productId)}/>
         }
     </>
     )

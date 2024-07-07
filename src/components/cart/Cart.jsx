@@ -20,7 +20,7 @@ import EmptyCart from '../../assets/EmptyCart.png'
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const { cart, removeItem, clearCart, totalPrice, getQuantity, saveLocalStorage } = useContext(Context)
+    const { cart, removeItem, clearCart, totalPrice, getQuantity, incrementarItem, decrementarItem } = useContext(Context)
 
     if (cart.length === 0) {
         return (
@@ -66,10 +66,15 @@ const Cart = () => {
                             <Stack w={'100%'}>
                                 <CardBody>
                                     <Heading fontSize='2rem'>{prod.nombre}</Heading>
-                                    <Flex justify={'space-between'}>
-                                        <Text py='2' paddingX={'2rem'} >
-                                            Cantidad: {prod.quantity}
-                                        </Text>
+                                    <Flex justify={'space-between'} align={'center'}>
+                                        <Flex m={'1rem'}>
+                                            <Text py='2' paddingX={'2rem'} >
+                                                Cantidad: {prod.quantity}
+                                            </Text>
+                                            <Button mx={'0.5rem'} size={'sm'} variant={'solid'} bgColor={'orange.800'} color={'#ffffff'} _hover={{bgColor: 'orange.600'}} onClick={() => incrementarItem(prod.id,prod.stock)}>+</Button>
+                                            <Button mx={'0.5rem'} size={'sm'} variant={'solid'} bgColor={'orange.800'} color={'#ffffff'} _hover={{bgColor: 'orange.600'}} onClick={() => decrementarItem(prod.id)}>-</Button>
+                                        </Flex>
+
                                         <Text py='2' paddingX={'2rem'} >
                                             Precio unitario: {costTransform(prod.precio)}
                                         </Text>
@@ -111,7 +116,7 @@ const Cart = () => {
                                     Productos: {getQuantity()}
                                 </Heading>
                                 <ChakraLink w={'100%'} as={Link} to={'/Checkout'}>
-                                    <Button w={'100%'} size={'lg'} variant={'solid'} color={'white'} bgColor={'orange.800'} _hover={{bgColor: 'orange.600'}} onClick={() => saveLocalStorage()}>
+                                    <Button w={'100%'} size={'lg'} variant={'solid'} color={'white'} bgColor={'orange.800'} _hover={{bgColor: 'orange.600'}}>
                                         Finalizar Compra
                                     </Button>
                                 </ChakraLink>

@@ -20,7 +20,7 @@ const Item = ({nombre,stock,precio,img,descripcion,id}) => {
     
     return (
     <Box margin='2.5rem'>
-        <Card maxW='sm' colorScheme={'Orange'}>
+        <Card maxW={'sm'} colorScheme={'Orange'}>
             <CardBody>
                 <Image 
                     src={img} borderRadius='lg'

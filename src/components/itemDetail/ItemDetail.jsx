@@ -7,9 +7,10 @@ import Context from '../../Context/CartContext'
 import { costTransform } from '../../config/firebase'
 import { FaCheck } from "react-icons/fa";
 
-const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock}) => {
+const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock, currentQuantity}) => {
   const [ cantidad, setCantidad ] = useState(0)
   const { addItem } = useContext(Context)
+  const maxAvailable = stock - currentQuantity
 
   const onAdd = (quantity) => {
     const item = {
@@ -40,6 +41,9 @@ const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock}) => {
                 <Text fontSize={'lg'}>{lgDescripcion}</Text>
                 <Heading color='orange.700' fontSize='3.5rem'fontWeight='700'>{costTransform(precio)}</Heading>
                 <Text fontSize={'1.5rem'}>Cantidad Disponible: {stock}</Text>
+                {
+                currentQuantity === 0 ? 0 : <Text fontSize={'1.5rem'}>Cantidad en el carrito: {currentQuantity}</Text>
+                }
                 <ToastContainer />
                 {
                   cantidad > 0 ?
@@ -58,7 +62,7 @@ const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock}) => {
                     </Link>
                   </Stack>
                   :
-                  <ItemCount stock={stock} valorInicial={1} onAdd={onAdd} />
+                  <ItemCount stock={stock} valorInicial={1} onAdd={onAdd} maxAvailable={maxAvailable}/>
                 }
               </Stack>
             </Box>
