@@ -1,7 +1,7 @@
 import React, { useContext, useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { SquareLoader } from 'react-spinners'
-import ItemDetail from '../ItemDetail/ItemDetail'
+import ItemDetail from '../itemDetail/ItemDetail'
 import { Flex } from '@chakra-ui/react'
 import { db } from '../../config/firebase'
 import { doc, getDoc } from 'firebase/firestore'

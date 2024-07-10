@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 import InfiniteComputingLogo from '../../assets/ifLogo.png'
 import { FaChevronDown } from "react-icons/fa";
-import CartWidget from '../CartWidget/CartWidget'
+import CartWidget from '../cartWidget/CartWidget'
 
 const NavBar = () => {
     return (
