@@ -12,7 +12,14 @@ const CartWidget = () => {
         <Link to={'/cart'}>
           <IoMdCart color={'#562B00'} size={'2.5rem'}/>
         </Link>
-        <Text>{ getQuantity() > 0 && getQuantity() }</Text>
+        {
+          getQuantity() > 0 ?
+          <Flex align={'center'} justify={'center'} bgColor={'orange.800'} borderRadius={'full'} width={'1.5rem'} height={'1.5rem'}>
+            <Text color={'white'} fontWeight={'600'} fontSize={'1rem'}>{ getQuantity() > 0 && getQuantity() }</Text>
+          </Flex>
+          :
+          <Text color={'white'} fontWeight={'600'} fontSize={'1rem'}>{ getQuantity() > 0 && getQuantity() }</Text>
+        }
     </Flex>
   )
 }

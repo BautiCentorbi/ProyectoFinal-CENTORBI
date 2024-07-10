@@ -21,7 +21,7 @@ const ItemDetail = ({id,nombre,precio,img,lgDescripcion,stock, currentQuantity})
       stock
     }
     addItem(item,quantity)
-    toast((quantity == 1) ? `Agregaste ${quantity} unidad` : `Agregaste ${quantity} unidades`)
+    toast.success((quantity == 1) ? `Agregaste ${quantity} unidad` : `Agregaste ${quantity} unidades`)
     setCantidad(quantity)
   }
 

@@ -85,9 +85,6 @@ const Cart = () => {
                                 </CardBody>
                                 <CardFooter>
                                     <Stack width={'100%'}>
-                                        <Button variant={'solid'} bgColor={'orange.800'} color={'#ffffff'} _hover={{bgColor: 'orange.600'}} >
-                                            Comprar
-                                        </Button>
                                         <Button alignContent={'center'} variant={'ghost'} color={'red.600'} _hover={{bgColor: 'red.600', color: '#ffffff'}} onClick={() => removeItem(prod.id)}>
                                             <FaTrashAlt />
                                             <Text px={'1vw'}>
