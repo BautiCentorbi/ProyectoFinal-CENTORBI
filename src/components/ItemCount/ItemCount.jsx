@@ -18,7 +18,7 @@ const ItemCount = ({stock, valorInicial, onAdd, maxAvailable}) => {
           stock === 0 ?
           <Box>
             <Flex w={'100%'} justify={'center'} align={'center'} mb={'1rem'}>
-              <Text fontSize={'large'}>Producto no disponible actualmente</Text>
+              <Text fontSize={'large'}>Producto no disponible en este momento</Text>
             </Flex>
             <Button w={'100%'} size={'lg'} variant={'solid'} color={'white'} bgColor={'orange.800'} _hover={{bgColor: 'orange.600'}}><Link to='/'>Seguir Comprando</Link></Button>
           </Box>
