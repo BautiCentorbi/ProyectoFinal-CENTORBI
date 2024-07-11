@@ -22,10 +22,6 @@ This web is developed with a Vite based installation, using ReactJs and Chakra U
 Vercel:
 [Infinite Computing](https://infinite-computing.vercel.app/)
 
-## Preview
-
-![image](/src/assets/)
-
 ## Built-In
 * React
 * Vite
